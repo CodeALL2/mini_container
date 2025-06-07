@@ -46,7 +46,7 @@ func main() {
 
 		if err := syscall.Unmount("/proc", 0); err != nil {
 			log.Fatal(err)
-			log.Println("程序启动异常")
+			log.Println("容器程序启动异常")
 		}
 		log.Println("程序结束")
 
