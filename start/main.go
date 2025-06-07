@@ -20,6 +20,10 @@ func main() {
 			log.Fatal("设置root", err)
 		}
 
+		if err := os.Chdir("/"); err != nil {
+			log.Fatal("设置根目录", err)
+		}
+
 		if err := syscall.Mount("proc", "/proc", "proc", 0, ""); err != nil {
 			log.Fatal("设置程序", err)
 		}
@@ -67,6 +71,8 @@ func main() {
 		if err := cmd.Run(); err != nil {
 			log.Fatalf("parent run child error: %v", err)
 		}
+
+		log.Println("父亲进程结束")
 
 	}
 }
